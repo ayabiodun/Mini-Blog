@@ -1,48 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Blog</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="dist/main.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="src/style.css" />
+    <script type="module" src="src/main.ts" defer></script>
+  </head>
+  <body>
     <header>
-        <h1>Mini Blog</h1>
+      <h1>Mini Blog</h1>
     </header>
 
     <div>
-        <input type="text" placeholder="Search....." id="search-input">
+      <input type="text" placeholder="Search....." id="search-input" />
     </div>
 
     <div>
-        <button>Create new Blog</button>
+      <button id="create-btn">Create new Blog</button>
     </div>
 
-    <section id="blog-container">
-    </section>
+    <section id="blog-container"></section>
 
-    <form class="create-tab">
+    <div>
+      <form class="create-form" style="display: none">
         <div class="input-form">
-            <input type="text" id="title" required>
-            <label for="title">Title</label>
+          <input name="title" type="text" id="title" required />
+          <label for="title">Title</label>
         </div>
         <div class="input-form">
-            <textarea name="" id="content" required></textarea>
-            <label for="content">Content</label>
+          <textarea name="content" id="content" required></textarea>
+          <label for="content">Content</label>
         </div>
         <div class="input-form">
-            <textarea name="" id="description" required></textarea>
-            <label for="description">Description</label>
+          <textarea name="description" id="description" required></textarea>
+          <label for="description">Description</label>
         </div>
         <div class="input-form">
-            <input type="text" id="image" required>
-            <label for="image">Image</label>
+          <input name="image" type="text" id="image" required />
+          <label for="image">Image</label>
         </div>
 
-        <button type="submit" id="create-blog-btn">Create</button>
-    </form>
-    <button id="cancel-btn">Cancel</button>
-</body>
+        <button type="submit">Create</button>
+      </form>
+      <button id="cancel-btn" style="display: none">Cancel</button>
+    </div>
+  </body>
 </html>
