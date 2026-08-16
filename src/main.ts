@@ -7,6 +7,7 @@ const blogContainer = document.querySelector("#blog-container") as HTMLElement;
 const createForm = document.querySelector(".create-form") as HTMLFormElement;
 const createBtn = document.querySelector("#create-btn") as HTMLButtonElement;
 const cancelBtn = document.querySelector("#cancel-btn") as HTMLButtonElement;
+const modal = document.querySelector('#blog-modal') as HTMLDivElement;
 
 window.addEventListener("pageshow", () => {
   const updatedBlogs = getBlogs();
@@ -47,13 +48,11 @@ blogContainer.addEventListener("click", (e: Event) => {
 });
 
 createBtn.addEventListener("click", () => {
-  createForm.style.display = "block";
-  cancelBtn.style.display = "block";
+  modal.style.display = 'block';
 });
 
 cancelBtn.addEventListener("click", () => {
-  createForm.style.display = "none";
-  cancelBtn.style.display = "none";
+  modal.style.display = 'none';
   createForm.reset();
 });
 
@@ -80,16 +79,21 @@ function displayBlog(blogs: BlogInfo[] = blogData) {
 
       div.innerHTML = `
                 <img src='${blog.image}' alt='${blog.description}'>
-                <h2>${blog.title}</h2>
-                <p>${blog.description}</p>
-                <span>${formatDate(blog.date)}</span><br>
-                <span>${blog.views}views</span>
-            `;
+                <div class="card-content">
+                  <h2>${blog.title}</h2>
+                  <p>${blog.description}</p>
+                </div>
+                <div class="card-footer">
+                  <span>${formatDate(blog.date)}</span><br>
+                  <span>${blog.views} views <i class="fa-solid fa-eye"></i></span>
+                </div>
+              `;
 
       blogContainer.appendChild(div);
     });
   } else {
     const div = document.createElement("div");
+    div.classList.add('error')
     div.innerText = "No Blogs found";
     blogContainer.append(div);
   }
