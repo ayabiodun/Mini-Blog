@@ -257,3 +257,10 @@ footer p{
     font-size: 0.7rem;
     color: var(--fade);
 }
+
+.interact{
+    display: flex;
+    align-items: center;
+    margin: 10px 5px 5px 10px;
+    justify-content: space-between;
+}
