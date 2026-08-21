@@ -17,30 +17,20 @@ body{
     background-color: var(--background);
     color: var(--text);
     font-family: 'Poppins', sans-serif;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 30px;
 }
 header h1{
-    margin-left: 50px;
-    flex-grow: 1;
     font-weight: 800;
     color: var(--accent);
-    @media screen and (max-width:580px){
-        margin-left: 10px;
-    }
-}
-
-#create-btn{
-    margin-right: 50px;
-    @media screen and (max-width:580px){
-        margin-right: 10px;
-    }
 }
 
 button{
@@ -59,22 +49,17 @@ button:hover{
 }
 
 #search-input{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 16px;
-    border-radius: 8px;
+    display: block;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    margin: 15px auto 0;
+    padding: 14px 18px;
+    border-radius: 10px;
     font-size: 1rem;
     border: 2px solid transparent;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     caret-color: var(--accent);
     font-family: inherit;
-    @media screen and (max-width:580px){
-        max-width: 350px;
-    }
 }
 
 #search-input:focus{
@@ -96,39 +81,48 @@ button:hover{
 }
 
 #blog-container{
-    margin: 35px 0 20px 0;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-items: center;
-    gap: 15px;
-    background-color: var(--card-bg);
     width: 100%;
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+
+    @media screen and (max-width: 780px){
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
 }
 
 .blog-card{
     width: 100%;
-    max-width: 400px;
     border-radius: 16px;
+    background-color: var(--card-bg);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     font-family: inherit;
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .blog-card:hover{
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-10px), scaleY(-100px);
+    transform: translateY(-5px);
 }
 
 .blog-card img{
     width: 100%;
-    height: 280px;
+    height: 240px;
     object-fit: cover;
     display: block;
+
+    @media screen and (max-width: 700px){
+        height: 220px;
+    }
 }
 
 .card-content{
@@ -260,7 +254,14 @@ footer p{
 
 .interact{
     display: flex;
-    align-items: center;
-    margin: 10px 5px 5px 10px;
-    justify-content: space-between;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+.interact button{
+    flex: 1;
+}
+
+.delete-btn {
+    background-color: #dc3545;
 }
